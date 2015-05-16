@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>commons</artifactId>
+        <groupId>com.devesion.commons</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>tests</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>${project.groupId}.${project.artifactId}</name>
+
+    <properties>
+        <project.dependency.powermock.version>1.5.1</project.dependency.powermock.version>
+        <project.dependency.mockito.version>1.9.5</project.dependency.mockito.version>
+        <project.dependency.pax.exam.version>3.3.0</project.dependency.pax.exam.version>
+        <project.dependency.pax.karaf.version>2.3.2</project.dependency.pax.karaf.version>
+        <project.dependency.google.catch-exception.version>1.0.4</project.dependency.google.catch-exception.version>
+        <project.dependency.fest-assert.version>1.4</project.dependency.fest-assert.version>
+        <project.dependency.fest-assert-core.version>2.0M5</project.dependency.fest-assert-core.version>
+        <project.dependency.fest-guava-assert.version>1.1</project.dependency.fest-guava-assert.version>
+        <project.dependency.testng.version>6.8.5</project.dependency.testng.version>
+        <project.dependency.junit.version>4.6</project.dependency.junit.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>pl.wp.cloud.commons.tests</Export-Package>
+                        <Import-Package>
+                            org.osgi.framework,
+                            org.slf4j,
+                            com.google.common.collect,
+                            org.junit.runner,
+                            org.ops4j.pax.exam,
+                            org.ops4j.pax.exam.options,
+                            org.ops4j.pax.exam.options.extra,
+                            org.ops4j.pax.exam.spi.reactors,
+                            org.ops4j.pax.exam.karaf.options,
+                            com.googlecode.catchexception,
+                            org.fest.assertions.api
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${project.dependency.testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${project.dependency.junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${project.dependency.mockito.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-testng</artifactId>
+            <version>${project.dependency.powermock.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${project.dependency.powermock.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert-core</artifactId>
+            <version>${project.dependency.fest-assert-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-guava-assert</artifactId>
+            <version>${project.dependency.fest-guava-assert.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.catch-exception</groupId>
+            <artifactId>catch-exception</artifactId>
+            <version>${project.dependency.google.catch-exception.version}</version>
+        </dependency>
+
+        <!-- Testing - Pax Exam -->
+        <dependency>
+            <groupId>org.ops4j.pax.exam</groupId>
+            <artifactId>pax-exam</artifactId>
+            <version>${project.dependency.pax.exam.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.exam</groupId>
+            <artifactId>pax-exam-junit4</artifactId>
+            <version>${project.dependency.pax.exam.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.exam</groupId>
+            <artifactId>pax-exam-container-karaf</artifactId>
+            <version>${project.dependency.pax.exam.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.exam</groupId>
+            <artifactId>pax-exam-link-mvn</artifactId>
+            <version>${project.dependency.pax.exam.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.url</groupId>
+            <artifactId>pax-url-aether</artifactId>
+            <version>1.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.runtime</artifactId>
+            <version>0.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.karaf</groupId>
+            <artifactId>apache-karaf</artifactId>
+            <version>${project.dependency.pax.karaf.version}</version>
+            <type>zip</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.karaf</groupId>
+                    <artifactId>org.apache.karaf.client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.karaf</groupId>
+            <artifactId>apache-karaf</artifactId>
+            <version>${project.dependency.pax.karaf.version}</version>
+            <type>tar.gz</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.karaf</groupId>
+                    <artifactId>org.apache.karaf.client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>org.apache.karaf.features.core</artifactId>
+            <version>${project.dependency.pax.karaf.version}</version>
+        </dependency>
+    </dependencies>
+</project>
