@@ -213,5 +213,6 @@
         <module>mongo</module>
         <module>camel</module>
         <module>ddd</module>
+        <module>rest</module>
     </modules>
 </project>

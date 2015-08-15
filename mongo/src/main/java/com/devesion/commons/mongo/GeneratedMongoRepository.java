@@ -1,4 +1,4 @@
-package com.devesion.commons.mongo.converters;
+package com.devesion.commons.mongo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;

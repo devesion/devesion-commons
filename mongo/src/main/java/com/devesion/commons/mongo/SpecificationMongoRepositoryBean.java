@@ -1,4 +1,4 @@
-package com.devesion.commons.mongo.converters;
+package com.devesion.commons.mongo;
 
 import com.devesion.commons.ddd.repository.StandardRepository;
 import com.devesion.commons.ddd.shared.ObjectNotFoundException;
@@ -57,6 +57,9 @@ public class SpecificationMongoRepositoryBean<T, K extends Serializable> impleme
 		Class<?> clazz = Generics.getTypeParameter(this.getClass());
 		QueryDslSpecificationCompiler compiler = new QueryDslSpecificationCompiler(clazz);
 		Predicate predicate = specification.compile(compiler);
+
+		log.info("findBySpecificationOptional {}, {}", specification, predicate);
+
 		T object = mongoRepository.findOne(predicate);
 		return Optional.fromNullable(object);
 	}
@@ -96,5 +99,15 @@ public class SpecificationMongoRepositoryBean<T, K extends Serializable> impleme
 	public T save(T object) {
 		mongoTemplate.save(object);
 		return object;
+	}
+
+	@Override
+	public void delete(T object) {
+		mongoTemplate.remove(object);
+	}
+
+	@Override
+	public void deleteById(K id) {
+		mongoRepository.delete(id);
 	}
 }

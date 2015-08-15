@@ -12,4 +12,8 @@ public interface SimpleStandardRepository<T, K> {
 	Optional<T> findByIdOptional(K id);
 
 	T save(T object);
+
+	void delete(T object);
+
+	void deleteById(K id);
 }
