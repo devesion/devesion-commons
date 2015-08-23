@@ -17,6 +17,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Spliterator;
+import java.util.stream.StreamSupport;
 
 /**
  * Mongo based {@link StandardRepository} implementation.
@@ -59,8 +61,12 @@ public class SpecificationMongoRepositoryBean<T, K extends Serializable> impleme
 		Predicate predicate = specification.compile(compiler);
 
 		log.info("findBySpecificationOptional {}, {}", specification, predicate);
+		return findAnyByPredicate(predicate);
+	}
 
-		T object = mongoRepository.findOne(predicate);
+	private Optional<T> findAnyByPredicate(Predicate predicate) {
+		Spliterator<T> spliterator = mongoRepository.findAll(predicate).spliterator();
+		T object = StreamSupport.stream(spliterator, true).findAny().orElse(null);
 		return Optional.fromNullable(object);
 	}
 
