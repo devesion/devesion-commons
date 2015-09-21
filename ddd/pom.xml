@@ -51,5 +51,12 @@
             <artifactId>querydsl-core</artifactId>
             <version>3.3.2</version>
         </dependency>
+
+        <!-- validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
     </dependencies>
 </project>
