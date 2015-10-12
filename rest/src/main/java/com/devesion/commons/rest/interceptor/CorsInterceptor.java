@@ -28,6 +28,5 @@ public class CorsInterceptor extends AbstractPhaseInterceptor<Message> {
 		headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 		headers.add("Access-Control-Allow-Headers", "accept, content-type, x-user-login, x-user-password, x-user-token");
 		message.put(Message.PROTOCOL_HEADERS, headers);
-		log.info("added header");
 	}
 }
