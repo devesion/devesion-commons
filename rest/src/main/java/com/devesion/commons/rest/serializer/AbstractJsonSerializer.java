@@ -12,7 +12,7 @@ import java.io.IOException;
  * Skeletal implementation for {@link JsonSerializer}.
  */
 @Slf4j
-abstract class AbstractJsonSerializer<T> extends JsonSerializer<T> {
+public abstract class AbstractJsonSerializer<T> extends JsonSerializer<T> {
 
 	@Override
 	public final void serialize(T value, JsonGenerator jgen, SerializerProvider provider) {
