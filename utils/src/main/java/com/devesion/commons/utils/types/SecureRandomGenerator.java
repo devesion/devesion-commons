@@ -14,15 +14,15 @@ public final class SecureRandomGenerator {
 
 		StringBuilder sb = new StringBuilder();
 		for (byte randomByte : randomBytes) {
-			sb.append(createCharacter(randomByte >> 4));
-			sb.append(createCharacter(randomByte << 4));
+			sb.append(createCharacter(Math.abs(randomByte >> 4)));
+			sb.append(createCharacter(Math.abs(randomByte & 0x0F)));
 		}
 
 		sb.setLength(length);
 		return sb.toString();
 	}
 
-	private static char createCharacter(int asciIndex) {
-		return (char) ('a' + asciIndex);
+	private static char createCharacter(int asciiIndex) {
+		return (char) ('a' + asciiIndex);
 	}
 }
