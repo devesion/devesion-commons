@@ -1,4 +1,4 @@
-package com.devesion.commons.utils.types;
+package com.devesion.commons.utils.crypto;
 
 import java.security.SecureRandom;
 
@@ -8,9 +8,7 @@ public final class SecureRandomGenerator {
 	}
 
 	public static String generateRandomString(int length) {
-		byte[] randomBytes = new byte[length / 2];
-		SecureRandom secureRandom = new SecureRandom();
-		secureRandom.nextBytes(randomBytes);
+		byte[] randomBytes = generateRandomBytes(length / 2);
 
 		StringBuilder sb = new StringBuilder();
 		for (byte randomByte : randomBytes) {
@@ -24,5 +22,12 @@ public final class SecureRandomGenerator {
 
 	private static char createCharacter(int asciiIndex) {
 		return (char) ('a' + asciiIndex);
+	}
+
+	public static byte[] generateRandomBytes(int length) {
+		byte[] randomBytes = new byte[length];
+		SecureRandom secureRandom = new SecureRandom();
+		secureRandom.nextBytes(randomBytes);
+		return randomBytes;
 	}
 }

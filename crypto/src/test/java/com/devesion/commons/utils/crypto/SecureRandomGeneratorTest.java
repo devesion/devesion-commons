@@ -1,4 +1,4 @@
-package com.devesion.commons.utils.types;
+package com.devesion.commons.utils.crypto;
 
 import org.apache.commons.lang3.StringUtils;
 import org.testng.annotations.DataProvider;
@@ -55,9 +55,9 @@ public class SecureRandomGeneratorTest {
 			String generatedString = SecureRandomGenerator.generateRandomString(expectedLength);
 			int levenshteinDistance = StringUtils.getLevenshteinDistance(generatedString, lastGeneratedString);
 			lastGeneratedString = generatedString;
+
+			// then
 			assertThat(levenshteinDistance).isGreaterThan((int) (expectedLength * 0.5));
 		}
-
-		// then
 	}
 }

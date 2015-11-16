@@ -214,5 +214,6 @@
         <module>camel</module>
         <module>ddd</module>
         <module>rest</module>
+        <module>crypto</module>
     </modules>
 </project>
