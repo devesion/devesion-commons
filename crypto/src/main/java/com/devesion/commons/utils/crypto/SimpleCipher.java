@@ -1,6 +1,6 @@
 package com.devesion.commons.utils.crypto;
 
-public interface Cipher {
+public interface SimpleCipher {
 
 	Message encrypt(Message message, Key key);
 

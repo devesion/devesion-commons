@@ -1,11 +1,9 @@
 package com.devesion.commons.utils.crypto;
 
 import com.google.common.base.Preconditions;
-import lombok.Getter;
 
 class RandomEntity {
 
-	@Getter
 	private final byte[] value;
 
 	public RandomEntity(byte[] value) {
@@ -14,6 +12,10 @@ class RandomEntity {
 
 	public RandomEntity(int length) {
 		this.value = SecureRandomGenerator.generateRandomBytes(length);
+	}
+
+	public byte[] getBytes() {
+		return value;
 	}
 
 	public byte getByte(int number) {
