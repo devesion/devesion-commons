@@ -9,4 +9,9 @@ public class Key extends RandomEntity {
 	public Key(byte[] value) {
 		super(value);
 	}
+
+	public static Key randomKey() {
+		byte[] value = SecureRandomGenerator.generateRandomBytes(16);
+		return new Key(value);
+	}
 }

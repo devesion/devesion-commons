@@ -10,48 +10,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mongo</artifactId>
-    <packaging>bundle</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>${project.groupId}.${project.artifactId}</name>
 
     <properties>
         <project.dependency.spring-data-mongodb.version>1.3.0.RELEASE</project.dependency.spring-data-mongodb.version>
     </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${project.plugin.compiler.version}</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>${project.plugin.bundle.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Export-Package>com.devesion.commons.mongo.*</Export-Package>
-                        <Import-Package>
-                            com.mongodb,
-                            org.springframework.core.convert.converter,
-                            com.google.gson,
-                            com.google.common.base,
-                            com.google.common.collect,
-                            com.devesion.commons.annotations.patterns,
-                            com.devesion.commons.utils.types.collections
-                        </Import-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -70,24 +35,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>com.devesion.commons</groupId>
-            <artifactId>utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.devesion.commons</groupId>
-            <artifactId>serialization</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.devesion.commons</groupId>
-            <artifactId>ddd</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
@@ -120,6 +67,25 @@
             <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
             <version>0.107</version>
+        </dependency>
+
+        <!-- Internal -->
+        <dependency>
+            <groupId>com.devesion.commons</groupId>
+            <artifactId>utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.devesion.commons</groupId>
+            <artifactId>ddd</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.devesion.commons</groupId>
+            <artifactId>crypto</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
