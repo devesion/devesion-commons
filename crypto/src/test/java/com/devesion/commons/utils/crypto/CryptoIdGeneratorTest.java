@@ -1,4 +1,4 @@
-package com.devesion.commons.utils.types;
+package com.devesion.commons.utils.crypto;
 
 import org.testng.annotations.Test;
 
@@ -13,13 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-/**
- * Tests for {@link IdGenerator}.
- */
-public class IdGeneratorTest {
+public class CryptoIdGeneratorTest {
 
-	public static final int NUMBER_OF_LOOPS_IN_THREAD = 1000;
-	public static final int NUMBER_OF_THREADS = 10;
+	private static final int NUMBER_OF_LOOPS_IN_THREAD = 1000;
+	private static final int NUMBER_OF_THREADS = 10;
 
 	@Test
 	public final void constructorShouldGenerateUniqueId() throws Exception {
@@ -66,7 +63,7 @@ public class IdGeneratorTest {
 
 		private void buildAggregateKeysInLoop(Collection<String> aggregateIds, int numberOfLoops) {
 			for (int i = 0; i < numberOfLoops; i++) {
-				String aggregateId = IdGenerator.generate();
+				String aggregateId = CryptoIdGenerator.generate();
 				aggregateIds.add(aggregateId);
 			}
 		}

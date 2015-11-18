@@ -1,19 +1,12 @@
-package com.devesion.commons.utils.types;
+package com.devesion.commons.utils.crypto;
 
-import com.devesion.commons.utils.cipher.AesCipher;
-import com.devesion.commons.utils.cipher.Cipher;
 import com.devesion.commons.utils.types.uuid.TimeUUIDGen;
-import com.google.common.io.BaseEncoding;
 
-import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class IdGenerator {
+public final class CryptoIdGenerator {
 
-	private static final SecureRandom secureRandomGenerator = new SecureRandom();
-	private static final Cipher cipher = new AesCipher();
-
-	private IdGenerator() {
+	private CryptoIdGenerator() {
 	}
 
 	public static String generate() {
@@ -36,14 +29,11 @@ public final class IdGenerator {
 	}
 
 	private static String generateEncryptedString(String randomString) {
-		String key = generateKey();
-		byte[] encryptedRandom = cipher.encrypt(randomString.getBytes(), key);
-		return BaseEncoding.base64().encode(encryptedRandom);
-	}
-
-	private static String generateKey() {
-		double secureRandom = secureRandomGenerator.nextDouble();
-		return Long.toHexString(Double.doubleToLongBits(secureRandom));
+		Key key = Key.randomKey();
+		Message message = Message.fromBytes(randomString.getBytes());
+		SimpleCipher cipher = new AesCipher();
+		Message encryptedMessage = cipher.encrypt(message, key);
+		return encryptedMessage.toBase64();
 	}
 
 	private static String filterBase64(String base64String) {

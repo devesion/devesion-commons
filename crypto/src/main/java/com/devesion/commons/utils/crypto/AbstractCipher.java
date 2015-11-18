@@ -1,8 +1,11 @@
 package com.devesion.commons.utils.crypto;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.Security;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -11,6 +14,10 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public abstract class AbstractCipher implements SimpleCipher {
+
+	static {
+		Security.addProvider(new BouncyCastleProvider());
+	}
 
 	@Override
 	public Message decrypt(Message message, Key key) {

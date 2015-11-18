@@ -2,7 +2,7 @@ package com.devesion.commons.mongo;
 
 import com.devesion.commons.ddd.repository.IdEntity;
 import com.devesion.commons.ddd.repository.StandardRepository;
-import com.devesion.commons.utils.types.IdGenerator;
+import com.devesion.commons.utils.crypto.CryptoIdGenerator;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ public class UniqueIdSpecificationMongoRepositoryBean<T extends IdEntity<K>, K e
 	}
 
 	private void addUniqueId(T entity) {
-		String uniqueId = IdGenerator.generate();
+		String uniqueId = CryptoIdGenerator.generate();
 		entity.setId(uniqueId);
 	}
 }
