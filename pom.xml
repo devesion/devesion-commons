@@ -10,8 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.plugin.compiler.version>3.1</project.plugin.compiler.version>
-        <project.plugin.bundle.version>2.4.0</project.plugin.bundle.version>
+        <project.plugin.compiler.version>3.3</project.plugin.compiler.version>
         <project.dependency.lombok.version>1.12.6</project.dependency.lombok.version>
         <project.dependency.gson.version>2.2.4</project.dependency.gson.version>
         <project.dependency.testng.version>6.8.5</project.dependency.testng.version>

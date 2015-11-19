@@ -11,6 +11,13 @@ target/
 # NetBeans
 /nbactions.xml
 
+# Gradle
+.gradle
+gradle
+gradlew
+gradlew.bat
+build
+
 # Package Files #
 *.jar
 *.war
