@@ -35,6 +35,20 @@ allprojects {
         jcenter()
     }
 
+    test {
+        useTestNG()
+
+        testLogging.showStandardStreams = true
+
+        beforeTest { descriptor ->
+            logger.lifecycle("Running test: " + descriptor)
+        }
+
+        onOutput { descriptor, event ->
+            logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+        }
+    }
+
     def versions = [:]
     versions["scala-lib"] = "2.11.2"
     versions["lombok"] = "1.12.6"
