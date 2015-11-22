@@ -1,0 +1,5 @@
+dependencies {
+    compile 'com.devesion.commons:annotations:1.0-SNAPSHOT'
+    compile 'com.mysema.querydsl:querydsl-core:3.3.2'
+    compile 'javax.validation:validation-api:1.0.0.GA'
+}

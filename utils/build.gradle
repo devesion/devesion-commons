@@ -1,0 +1,5 @@
+dependencies {
+    compile 'com.devesion.commons:annotations:1.0-SNAPSHOT'
+    compile 'com.devesion.commons:ddd:1.0-SNAPSHOT'
+    testCompile 'org.apache.commons:commons-lang3:3.3.2'
+}
