@@ -17,7 +17,7 @@ gradle
 gradlew
 gradlew.bat
 build
-maven.gradle
+maven.properties
 
 # Package Files #
 *.jar
