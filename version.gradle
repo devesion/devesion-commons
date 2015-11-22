@@ -1,0 +1,21 @@
+ext.versionNumber = null
+ext.increaseVersion = {
+
+    if (versionNumber != null) {
+        return versionNumber
+    }
+
+    def versionPropsFile = file('version.properties')
+
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+        versionNumber = versionProps['version'].toInteger() + 1
+        versionProps['version'] = versionNumber.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        return versionNumber
+    } else {
+        throw new GradleException("Could not read version.properties!")
+    }
+}

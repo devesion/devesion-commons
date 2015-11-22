@@ -6,5 +6,5 @@ dependencies {
     compile 'org.codehaus.jackson:jackson-jaxrs:1.9.13'
     compile 'javax.validation:validation-api:1.1.0.Final'
     compile 'org.hibernate:hibernate-validator:4.3.0.Final'
-    compile 'com.devesion.commons:ddd:1.0-SNAPSHOT'
+    compile project(':ddd')
 }

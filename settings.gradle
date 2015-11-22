@@ -9,11 +9,12 @@ include 'rest'
 include 'tests'
 include 'utils'
 
-project(":annotations").name = "com.devesion.commons.annotations"
-project(":camel").name = "com.devesion.commons.camel"
-project(":crypto").name = "com.devesion.commons.crypto"
-project(":ddd").name = "com.devesion.commons.ddd"
-project(":mongo").name = "com.devesion.commons.mongo"
-project(":rest").name = "com.devesion.commons.rest"
-project(":tests").name = "com.devesion.commons.tests"
-project(":utils").name = "com.devesion.commons.utils"
+project(":annotations").name = "annotations"
+project(":camel").name = "camel"
+project(":crypto").name = "crypto"
+project(":ddd").name = "ddd"
+project(":mongo").name = "mongo"
+project(":rest").name = "rest"
+project(":tests").name = "tests"
+project(":utils").name = "utils"
+
