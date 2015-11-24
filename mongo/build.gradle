@@ -3,6 +3,7 @@ dependencies {
     compile 'com.mysema.querydsl:querydsl-apt:3.6.2'
     compile 'com.mysema.querydsl:querydsl-core:3.6.2'
     compile 'com.mysema.querydsl:querydsl-mongodb:3.3.2'
+    compile 'org.mongodb.morphia:morphia:0.107'
     compile project(':utils')
     compile project(':ddd')
     compile project(':crypto')

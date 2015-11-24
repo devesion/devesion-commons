@@ -8,6 +8,7 @@ allprojects {
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
 
+    sourceCompatibility = 1.8
     sourceSets.main.scala.srcDir "src/main/java"
     sourceSets.main.java.srcDirs = []
 
