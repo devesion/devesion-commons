@@ -17,8 +17,16 @@ public class CorsPreflightInterceptor extends AbstractPhaseInterceptor<Message> 
 
 	@Override
 	public void handleMessage(Message message) throws Fault {
-		String methodName = message.get(Message.HTTP_REQUEST_METHOD).toString();
+		if (message == null) {
+			return;
+		}
 
+		Object methodType = message.get(Message.HTTP_REQUEST_METHOD);
+		if (methodType == null) {
+			return;
+		}
+
+		String methodName = methodType.toString();
 		if (methodName.equalsIgnoreCase("options")) {
 			Response response = Response.ok().build();
 			message.getExchange().put(Response.class, response);

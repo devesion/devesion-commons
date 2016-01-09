@@ -6,6 +6,7 @@ include 'crypto'
 include 'ddd'
 include 'mongo'
 include 'rest'
+include 'mapper'
 include 'tests'
 include 'utils'
 
@@ -15,6 +16,8 @@ project(":crypto").name = "crypto"
 project(":ddd").name = "ddd"
 project(":mongo").name = "mongo"
 project(":rest").name = "rest"
+project(":mapper").name = "mapper"
 project(":tests").name = "tests"
 project(":utils").name = "utils"
+include 'mapper'
 

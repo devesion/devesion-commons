@@ -6,6 +6,7 @@ import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Security;
+import java.util.Arrays;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -60,7 +61,13 @@ public abstract class AbstractCipher implements SimpleCipher {
 	}
 
 	private SecretKeySpec createSecretKeySpec(Key key) {
-		return new SecretKeySpec(key.getBytes(), getCipherName());
+		Integer cipherKeyLength = getCipherKeyLength();
+		byte[] rawKey = key.getBytes();
+		if (rawKey.length > cipherKeyLength) {
+			rawKey = Arrays.copyOf(rawKey, cipherKeyLength);
+		}
+
+		return new SecretKeySpec(rawKey, getCipherName());
 	}
 
 	private IvParameterSpec createIvSpec(InitializationVector iv) {
@@ -79,4 +86,6 @@ public abstract class AbstractCipher implements SimpleCipher {
 	protected abstract String getCipherName();
 
 	protected abstract String getCipherMode();
+
+	protected abstract Integer getCipherKeyLength();
 }

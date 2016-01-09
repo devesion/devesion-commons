@@ -9,4 +9,9 @@ public class AesCipher extends AbstractCipher {
 	protected String getCipherMode() {
 		return "AES/GCM/NoPadding";
 	}
+
+	@Override
+	protected Integer getCipherKeyLength() {
+		return 16;
+	}
 }
