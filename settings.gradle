@@ -9,6 +9,7 @@ include 'rest'
 include 'mapper'
 include 'tests'
 include 'utils'
+include 'mapper'
 
 project(":annotations").name = "annotations"
 project(":camel").name = "camel"
@@ -19,5 +20,4 @@ project(":rest").name = "rest"
 project(":mapper").name = "mapper"
 project(":tests").name = "tests"
 project(":utils").name = "utils"
-include 'mapper'
 
