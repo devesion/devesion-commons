@@ -1,6 +1,6 @@
 package com.devesion.commons.utils.crypto;
 
-import org.bouncycastle.util.encoders.Base64;
+import com.google.common.io.BaseEncoding;
 
 public final class Message {
 
@@ -15,7 +15,7 @@ public final class Message {
 	}
 
 	public static Message fromBase64(String base64Value) {
-		byte[] value = Base64.decode(base64Value);
+		byte[] value = BaseEncoding.base64().decode(base64Value);
 		return new Message(value);
 	}
 
@@ -29,7 +29,7 @@ public final class Message {
 	}
 
 	public String toBase64() {
-		return Base64.toBase64String(value);
+		return BaseEncoding.base64().encode(value);
 	}
 
 	public String toString() {

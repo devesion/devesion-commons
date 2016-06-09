@@ -1,17 +1,19 @@
 ext.getMavenConfig = {
     def mavenPropsFile = file('maven.properties')
+    def mavenUrl = ""
     def mavenUser = ""
     def mavenPassword = ""
 
     if (mavenPropsFile.canRead()) {
         def Properties mavenProps = new Properties()
         mavenProps.load(new FileInputStream(mavenPropsFile))
+        mavenUrl = mavenProps["mavenUrl"]
         mavenUser = mavenProps["mavenUser"]
         mavenPassword = mavenProps["mavenPassword"]
     }
 
     return {
-        url "http://10.0.0.7:8081/artifactory/releases"
+        url mavenUrl
         credentials {
             username = mavenUser
             password = mavenPassword
