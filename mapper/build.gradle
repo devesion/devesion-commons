@@ -1,5 +1,5 @@
 dependencies {
-    compile("com.devesion.commons:ddd:1.0-SNAPSHOT")
+    compile project(':ddd')
 
     compile("ma.glasnost.orika:orika-core:1.4.6") {
         exclude module: "paranamer:com.thoughtworks.paranamer"
